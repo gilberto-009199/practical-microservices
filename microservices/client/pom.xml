@@ -13,7 +13,13 @@
     <name>client</name>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.buiild.sourceEncoding>UTF-8</project.buiild.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compile.source>17</maven.compile.source>
+        <maven.compile.target>17</maven.compile.target>
+
+        <dependencie.spring.version>4.0.2</dependencie.spring.version>
+        <dependencie.junit.version>3.8.1</dependencie.junit.version>
     </properties>
 
     <dependencies>
