@@ -7,12 +7,51 @@
   <version>1.0-SNAPSHOT</version>
   <name>microservices</name>
   <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.buiild.sourceEncoding>UTF-8</project.buiild.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compile.source>17</maven.compile.source>
+        <maven.compile.target>17</maven.compile.target>
+
+        <dependencie.spring.version>4.0.2</dependencie.spring.version>
+        <dependencie.junit.version>3.8.1</dependencie.junit.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${dependencie.spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${dependencie.junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${dependencie.spring.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
 </project>
