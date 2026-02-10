@@ -3,10 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.gilberto009199</groupId>
   <artifactId>microservices</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
+  <modules>
+    <module>client</module>
+  </modules>
+
   <version>1.0-SNAPSHOT</version>
   <name>microservices</name>
-  <url>http://maven.apache.org</url>
 
     <properties>
         <project.buiild.sourceEncoding>UTF-8</project.buiild.sourceEncoding>
