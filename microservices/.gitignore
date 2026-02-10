@@ -1,3 +1,5 @@
+postgres
+client/postgres
 data/
 HELP.md
 target/

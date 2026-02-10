@@ -1,6 +1,7 @@
 package com.gilberto009199.microservice.client.services;
 
 import com.gilberto009199.microservice.client.entities.ClientEntity;
+import com.gilberto009199.microservice.client.repositories.ClientRepository;
 import com.gilberto009199.microservice.client.requests.ClientRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,16 +14,21 @@ public class ClientService {
 
     private static final Logger log = LoggerFactory.getLogger(ClientService.class);
 
+    private final ClientRepository clientRepository;
+
+    public ClientService(ClientRepository clientRepository){
+        this.clientRepository = clientRepository;
+    }
+
     public ClientEntity createClient(ClientRequest clientRequest){
         log.info("create client in service {}", clientRequest);
 
         var clientEntity = new ClientEntity();
 
-        clientEntity.setId(Math.round(Math.random() / 0.001));
         clientEntity.setName(clientRequest.name());
         clientEntity.setEmail(clientRequest.email());
 
-        return clientEntity;
+        return clientRepository.save(clientEntity);
     }
 
 }

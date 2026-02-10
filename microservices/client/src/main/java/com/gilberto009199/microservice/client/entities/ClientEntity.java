@@ -1,9 +1,19 @@
 package com.gilberto009199.microservice.client.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tbl_clients")
 public class ClientEntity {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
 
     public Long getId() {
