@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(name = "clientFraud", url = "${config.external.fraud-service.url}")
+@FeignClient(name = "FRAUD")
 public interface FraudService {
 
     @PostMapping("/api/v1/fraud/{idClient}")

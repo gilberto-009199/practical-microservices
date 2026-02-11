@@ -12,8 +12,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
-config:
-  external:
-    fraud-service:
-      url: http://localhost:8090/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

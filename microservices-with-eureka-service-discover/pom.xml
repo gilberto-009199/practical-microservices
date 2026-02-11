@@ -7,6 +7,7 @@
   <modules>
     <module>client</module>
       <module>fraud</module>
+      <module>discover</module>
   </modules>
 
   <version>1.0-SNAPSHOT</version>
@@ -20,6 +21,7 @@
 
         <dependencie.spring.version>4.0.2</dependencie.spring.version>
         <dependencie.spring-cloud.version>2025.1.1</dependencie.spring-cloud.version>
+        <dependencie.spring-cloud-netflix.version>5.0.1</dependencie.spring-cloud-netflix.version>
 
         <dependencie.junit.version>3.8.1</dependencie.junit.version>
     </properties>
@@ -41,6 +43,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${dependencie.spring-cloud-netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
