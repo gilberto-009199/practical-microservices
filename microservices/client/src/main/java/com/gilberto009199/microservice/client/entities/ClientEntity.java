@@ -20,23 +20,27 @@ public class ClientEntity {
         return id;
     }
 
-    public void setId(Long id) {
+    public ClientEntity setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public ClientEntity setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public ClientEntity setEmail(String email) {
         this.email = email;
+        return this;
     }
+
 }

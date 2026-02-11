@@ -23,10 +23,10 @@ public class ClientService {
     public ClientEntity createClient(ClientRequest clientRequest){
         log.info("create client in service {}", clientRequest);
 
-        var clientEntity = new ClientEntity();
+        var clientEntity = new ClientEntity()
+                .setName(clientRequest.name())
+                .setEmail(clientRequest.email());
 
-        clientEntity.setName(clientRequest.name());
-        clientEntity.setEmail(clientRequest.email());
 
         return clientRepository.save(clientEntity);
     }
