@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: fraud
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservices
+    username: microservices_user
+    password: microservices_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update

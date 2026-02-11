@@ -15,9 +15,14 @@ public class ClientService {
     private static final Logger log = LoggerFactory.getLogger(ClientService.class);
 
     private final ClientRepository clientRepository;
+    private final FraudService fraudService;
 
-    public ClientService(ClientRepository clientRepository){
+    public ClientService(
+            ClientRepository clientRepository,
+            FraudService fraudService
+    ){
         this.clientRepository = clientRepository;
+        this.fraudService = fraudService;
     }
 
     public ClientEntity createClient(ClientRequest clientRequest){
@@ -28,7 +33,14 @@ public class ClientService {
                 .setEmail(clientRequest.email());
 
 
-        return clientRepository.save(clientEntity);
+
+        clientRepository.saveAndFlush(clientEntity);
+
+        fraudService.isFraud(clientEntity.getId());
+
+
+
+        return clientEntity;
     }
 
 }

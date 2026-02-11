@@ -12,3 +12,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+config:
+  external:
+    fraud-service:
+      url: http://localhost:8090/

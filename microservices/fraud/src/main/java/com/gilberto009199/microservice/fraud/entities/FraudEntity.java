@@ -1,6 +1,7 @@
 package com.gilberto009199.microservice.fraud.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -13,14 +14,19 @@ public class FraudEntity {
             name = "seq_tbl_frauds_id",
             sequenceName = "seq_tbl_frauds_id"
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_tbl_frauds_id"
+    )
     private Long id;
 
     @Column
     private Long clientId;
     @Column
     private boolean isFraudster;
+
     @Column
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     public Long getId() {

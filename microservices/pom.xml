@@ -19,6 +19,8 @@
         <maven.compile.target>17</maven.compile.target>
 
         <dependencie.spring.version>4.0.2</dependencie.spring.version>
+        <dependencie.spring-cloud.version>2025.1.1</dependencie.spring-cloud.version>
+
         <dependencie.junit.version>3.8.1</dependencie.junit.version>
     </properties>
 
@@ -29,6 +31,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${dependencie.spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${dependencie.spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
