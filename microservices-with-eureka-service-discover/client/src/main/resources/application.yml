@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: client
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservices
+    username: microservices_user
+    password: microservices_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+config:
+  external:
+    fraud-service:
+      url: http://localhost:8090/
