@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gilberto009199</groupId>
+  <artifactId>microservices</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>client</module>
+      <module>fraud</module>
+      <module>discover</module>
+      <module>notification</module>
+  </modules>
+
+  <version>1.0-SNAPSHOT</version>
+  <name>microservices</name>
+
+    <properties>
+        <project.buiild.sourceEncoding>UTF-8</project.buiild.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compile.source>17</maven.compile.source>
+        <maven.compile.target>17</maven.compile.target>
+
+        <dependencie.spring.version>4.0.2</dependencie.spring.version>
+        <dependencie.spring-cloud.version>2025.1.1</dependencie.spring-cloud.version>
+        <dependencie.spring-cloud-netflix.version>5.0.1</dependencie.spring-cloud-netflix.version>
+
+        <dependencie.junit.version>3.8.1</dependencie.junit.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${dependencie.spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${dependencie.spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${dependencie.spring-cloud-netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+  <dependencies>
+      <!-- Gil, o minimo para start da hierarquia de dependencia -->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>${dependencie.junit.version}</version>
+          <scope>test</scope>
+      </dependency>
+  </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${dependencie.spring.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

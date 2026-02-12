@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: client
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservices
+    username: microservices_user
+    password: microservices_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: ${KAFKA_URL:localhost:9094}
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "com.gilberto009199.microservices.*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
