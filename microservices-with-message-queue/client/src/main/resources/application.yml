@@ -24,15 +24,6 @@ spring:
           json:
             trusted:
               packages: "com.gilberto009199.microservices.client.*"
-    consumer:
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring:
-          json:
-            trusted:
-              packages: "com.gilberto009199.microservices.client.*"
-
 eureka:
   client:
     service-url:

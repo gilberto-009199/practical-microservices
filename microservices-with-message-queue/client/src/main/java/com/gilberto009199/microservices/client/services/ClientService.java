@@ -4,7 +4,8 @@ import com.gilberto009199.microservices.client.controllers.queues.NotificationPr
 import com.gilberto009199.microservices.client.entities.ClientEntity;
 import com.gilberto009199.microservices.client.repositories.ClientRepository;
 import com.gilberto009199.microservices.client.requests.ClientRequest;
-import com.gilberto009199.microservices.client.requests.NotificationRequest;
+
+import com.gilberto009199.microservices.topics.NotificationTopics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,7 @@ public class ClientService {
 
         fraudService.isFraud(clientEntity.getId());
 
-        notificationProduces.sendNotification(new NotificationRequest("Create your account", clientEntity.getEmail()));
+        notificationProduces.sendNotification(new NotificationTopics("Create your account", clientEntity.getEmail()));
 
         return clientEntity;
     }

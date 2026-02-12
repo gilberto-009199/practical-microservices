@@ -1,7 +1,8 @@
 package com.gilberto009199.microservices.client.config;
 
 import com.fasterxml.jackson.databind.ser.std.JsonValueSerializer;
-import com.gilberto009199.microservices.client.requests.NotificationRequest;
+
+import com.gilberto009199.microservices.topics.NotificationTopics;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -34,7 +35,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ProducerFactory<String, NotificationRequest> producerFactory() {
+    public ProducerFactory<String, NotificationTopics> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -43,7 +44,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, NotificationRequest> kafkaTemplate() {
+    public KafkaTemplate<String, NotificationTopics> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 

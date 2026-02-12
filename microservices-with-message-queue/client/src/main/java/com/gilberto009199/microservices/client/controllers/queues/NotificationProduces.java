@@ -1,7 +1,7 @@
 package com.gilberto009199.microservices.client.controllers.queues;
 
-import com.gilberto009199.microservices.client.requests.NotificationRequest;
 
+import com.gilberto009199.microservices.topics.NotificationTopics;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.kafka.core.KafkaTemplate;
@@ -14,9 +14,9 @@ import static com.gilberto009199.microservices.client.config.KafkaConfig.topicNa
 public class NotificationProduces {
 
     @Autowired
-    private KafkaTemplate<String, NotificationRequest> topic;
+    private KafkaTemplate<String, NotificationTopics> topic;
 
-    public void sendNotification(NotificationRequest notificationRequest){
+    public void sendNotification(NotificationTopics notificationRequest){
         topic.send(topicName, notificationRequest);
     }
 
