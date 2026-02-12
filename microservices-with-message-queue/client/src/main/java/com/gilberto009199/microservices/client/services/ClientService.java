@@ -1,6 +1,6 @@
 package com.gilberto009199.microservices.client.services;
 
-import com.gilberto009199.microservices.client.controllers.queues.NotificationProduces;
+import com.gilberto009199.microservices.client.queues.NotificationProduces;
 import com.gilberto009199.microservices.client.entities.ClientEntity;
 import com.gilberto009199.microservices.client.repositories.ClientRepository;
 import com.gilberto009199.microservices.client.requests.ClientRequest;

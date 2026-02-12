@@ -1,4 +1,4 @@
-package com.gilberto009199.microservices.client.controllers.queues;
+package com.gilberto009199.microservices.client.queues;
 
 
 import com.gilberto009199.microservices.topics.NotificationTopics;
