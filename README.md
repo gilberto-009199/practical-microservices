@@ -61,5 +61,35 @@ architecture-beta
     
 ```
 
++ [Microservices with Menssage Broker RabbitMQ](microservices-with-message-queue-in-rabbitmq) - Microservices with RabbitMQ Message Broker
 
+```mermaid
+---
+config:
+  theme: 'dark'
+---
+architecture-beta
+    service client_service(server)[Microservice Client]
+    service fraud_service(server)[Microservice Fraud]
+    service notification_service(server)[Microservice Notification]
+
+    service eureka_server(server)[Eureka Service Discover]
+    junction junction_eureka_server
+
+    service rabbit_message_broker(server)[RabbitMQ Message Broker]
+    junction junction_rabbit_message_broker
+
+
+    client_service:R --> L:fraud_service
+
+    client_service:B -- T:junction_eureka_server
+    fraud_service:B -- T:junction_eureka_server
+    junction_eureka_server:B --> T:eureka_server
+
+    rabbit_message_broker:R --> L:notification_service
+    client_service:B -- T:junction_rabbit_message_broker
+    fraud_service:B -- T:junction_rabbit_message_broker
+    junction_rabbit_message_broker:B --> T:rabbit_message_broker
+    
+```
   
