@@ -54,7 +54,7 @@ architecture-beta
     fraud_service:B -- T:junction_eureka_server
     junction_eureka_server:B --> T:eureka_server
 
-    kafka_message_broker:L --> R:notification_service
+    kafka_message_broker:R --> L:notification_service
     client_service:B -- T:junction_kafka_message_broker
     fraud_service:B -- T:junction_kafka_message_broker
     junction_kafka_message_broker:B --> T:kafka_message_broker
