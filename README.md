@@ -130,4 +130,5 @@ architecture-beta
     
 ```
   
-  
++ Spring Cloud API Gateway IN PROGRESS
++ Spring Cloud Zookeeper IN PROGRESS
