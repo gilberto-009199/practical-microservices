@@ -92,4 +92,42 @@ architecture-beta
     junction_rabbit_message_broker:B --> T:rabbit_message_broker
     
 ```
+
++ [Microservices with Config Server](microservices-with-config-server) - Microservices with Config Server
+
+```mermaid
+---
+config:
+  theme: 'dark'
+---
+architecture-beta
+    service client_service(server)[Microservice Client]
+    service fraud_service(server)[Microservice Fraud]
+    service notification_service(server)[Microservice Notification]
+
+    service eureka_server(server)[Eureka Service Discover]
+    junction junction_eureka_server
+
+    service rabbit_message_broker(server)[RabbitMQ Message Broker]
+    junction junction_rabbit_message_broker
+
+    service config_server_service(server)[Config Server]
+    junction junction_config_server
+
+    client_service:R --> L:fraud_service
+
+    client_service:B -- T:junction_eureka_server
+    fraud_service:B -- T:junction_eureka_server
+    junction_eureka_server:B --> T:eureka_server
+
+    client_service:T -- L:junction_config_server
+    junction_config_server:R --> T:config_server_service
+
+    rabbit_message_broker:R --> L:notification_service
+    client_service:B -- T:junction_rabbit_message_broker
+    fraud_service:B -- T:junction_rabbit_message_broker
+    junction_rabbit_message_broker:B --> T:rabbit_message_broker
+    
+```
+  
   
